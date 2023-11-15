@@ -34,7 +34,7 @@ export const timerInit = (selector, deadline, title) => {
     return dictionary[mode][option];
   };
 
-  const cellRemover = (val, elem) => {
+  const cellVisibility = (val, elem) => {
     if (val === 0) {
       elem.style.cssText = `
         opacity: 0;
@@ -53,9 +53,9 @@ export const timerInit = (selector, deadline, title) => {
     const hourCell = selector.querySelector('.timer__item_hours');
     const minutesCell = selector.querySelector('.timer__item_minutes');
 
-    cellRemover(timer.days, dayCell);
-    cellRemover(timer.hours, hourCell);
-    cellRemover(timer.minutes, minutesCell);
+    cellVisibility(timer.days, dayCell);
+    cellVisibility(timer.hours, hourCell);
+    cellVisibility(timer.minutes, minutesCell);
 
     dayCell.firstElementChild.textContent = timer.days;
     dayCell.lastElementChild.textContent = conjugator('days',
