@@ -13,6 +13,23 @@ export const timerInit = (selector, deadline, title) => {
     return {timeRemaning, days, minutes, hours};
   };
 
+  const minutesSplitter = val => {
+    if (val >= 10) {
+      const str = val.toString();
+      const num = +str.slice(1);
+
+      return num === 1 ? 0 :
+      (num > 1 && num < 5) ? 2 :
+      (num >= 5) ? 1 :
+      1;
+    } else {
+      return val === 1 ? 0 :
+      (val > 1 && val < 5) ? 2 :
+      (val >= 5) ? 1 :
+      '';
+    }
+  };
+
   const conjugator = (mode, option) => {
     const dictionary = {
       days: [
@@ -34,28 +51,12 @@ export const timerInit = (selector, deadline, title) => {
     return dictionary[mode][option];
   };
 
-  const cellVisibility = (val, elem) => {
-    if (val === 0) {
-      elem.style.cssText = `
-        opacity: 0;
-      `;
-    } else if (val > 0) {
-      elem.style.cssText = `
-        opacity: 1;
-      `;
-    }
-  };
-
   const startTimer = () => {
     const timer = getTimeRemaning();
 
     const dayCell = selector.querySelector('.timer__item_days');
     const hourCell = selector.querySelector('.timer__item_hours');
     const minutesCell = selector.querySelector('.timer__item_minutes');
-
-    cellVisibility(timer.days, dayCell);
-    cellVisibility(timer.hours, hourCell);
-    cellVisibility(timer.minutes, minutesCell);
 
     dayCell.firstElementChild.textContent = timer.days;
     dayCell.lastElementChild.textContent = conjugator('days',
@@ -73,10 +74,7 @@ export const timerInit = (selector, deadline, title) => {
 
     minutesCell.firstElementChild.textContent = timer.minutes;
     minutesCell.lastElementChild.textContent = conjugator('minutes',
-      timer.minutes % 10 === 1 && timer.minutes !== 11 ? 0 :
-      ((timer.minutes % 10 >= 2 && timer.minutes % 10 <= 4) &&
-        !(timer.minutes >= 12 &&
-        timer.minutes <= 14)) ? 1 : 2);
+      minutesSplitter(timer.minutes));
 
     const intervalId = setTimeout(startTimer, 60000);
 
