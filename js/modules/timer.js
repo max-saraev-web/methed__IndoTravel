@@ -47,7 +47,7 @@ export const timerInit = (selector, deadline, title) => {
         (num >= 5) ? 1 :
         1;
     } else {
-      return val === 0 ? 1 : 
+      return val === 0 ? 1 :
         val === 1 ? 0 :
         (val > 1 && val < 5) ? 2 :
         (val >= 5) ? 1 :
