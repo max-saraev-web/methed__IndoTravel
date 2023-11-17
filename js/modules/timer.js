@@ -13,20 +13,45 @@ export const timerInit = (selector, deadline, title) => {
     return {timeRemaning, days, minutes, hours};
   };
 
-  const minutesSplitter = val => {
-    if (val >= 10) {
+  const daysSplitter = val => {
+    if (val >= 10 && val <= 19) {
+      return 2;
+    } else if (val >= 20) {
       const str = val.toString();
       const num = +str.slice(1);
 
-      return num === 1 ? 0 :
-      (num > 1 && num < 5) ? 2 :
-      (num >= 5) ? 1 :
-      1;
+      return num === 0 ? 2 :
+        num === 1 ? 0 :
+        (num > 1 && num < 5) ? 1 :
+        (num >= 5) ? 2 :
+        1;
     } else {
-      return val === 1 ? 0 :
-      (val > 1 && val < 5) ? 2 :
-      (val >= 5) ? 1 :
-      '';
+      return val === 0 ? 2 :
+        val === 1 ? 0 :
+        (val > 1 && val < 5) ? 1 :
+        (val >= 5) ? 2 :
+        '';
+    }
+  };
+
+  const minutesSplitter = val => {
+    if (val >= 10 && val <= 19) {
+      return 1;
+    } else if (val >= 20) {
+      const str = val.toString();
+      const num = +str.slice(1);
+
+      return num === 0 ? 1 :
+        num === 1 ? 0 :
+        (num > 1 && num < 5) ? 2 :
+        (num >= 5) ? 1 :
+        1;
+    } else {
+      return val === 0 ? 1 : 
+        val === 1 ? 0 :
+        (val > 1 && val < 5) ? 2 :
+        (val >= 5) ? 1 :
+        '';
     }
   };
 
@@ -60,16 +85,14 @@ export const timerInit = (selector, deadline, title) => {
 
     dayCell.firstElementChild.textContent = timer.days;
     dayCell.lastElementChild.textContent = conjugator('days',
-      timer.days === 1 ? 0 :
-      (timer.days > 1 && timer.days < 5) ? 1 :
-      (timer.days >= 5) ? 2 :
-      'Ошибка');
+      daysSplitter(timer.days));
 
     hourCell.firstElementChild.textContent = timer.hours;
     hourCell.lastElementChild.textContent = conjugator('hours',
-      (timer.hours === 1 || timer.hours === 21) ? 0 :
-        ((timer.hours >= 2 && timer.hours <= 4) ||
-          (timer.hours >= 22 && timer.hours <= 24)) ? 1 :
+      timer.hours === 0 ? 2 :
+        (timer.hours === 1 || timer.hours === 21) ? 0 :
+          ((timer.hours >= 2 && timer.hours <= 4) ||
+            (timer.hours >= 22 && timer.hours <= 24)) ? 1 :
           2);
 
     minutesCell.firstElementChild.textContent = timer.minutes;
