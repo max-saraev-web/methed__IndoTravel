@@ -1,9 +1,15 @@
-export const accordion = ({accordion, buttons, items, wrappers}) => {
+export const accordion = ({buttons, items, wrappers}) => {
   let wrapperHeight = 0;
 
-  wrappers.forEach(elem => {
-    if (wrapperHeight < elem.scrollHeight) {
-      wrapperHeight = elem.scrollHeight;
+  wrappers.forEach(wrap => {
+    if (wrapperHeight < wrap.scrollHeight) {
+      wrapperHeight = wrap.scrollHeight;
+    }
+  });
+
+  items.forEach((item, i) => {
+    if (item.classList.contains('travel__item_active')) {
+      wrappers[i].style.height = `${wrapperHeight}px`;
     }
   });
 
@@ -19,7 +25,6 @@ export const accordion = ({accordion, buttons, items, wrappers}) => {
           wrappers[i].style.height = '';
         }
       });
-      // items[index].classList.toggle('travel__item_active');
     });
   });
 };

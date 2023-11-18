@@ -9,7 +9,6 @@ export const getMainAccordion = () => {
   const wrappers = accordion.querySelectorAll('.travel__item-text-wrapper');
 
   return {
-    accordion,
     buttons,
     items,
     wrappers,
