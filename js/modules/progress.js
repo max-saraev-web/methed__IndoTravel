@@ -1,19 +1,12 @@
 const progress = () => {
   const img = document.createElement('div');
   let isRendered = false;
-  let direction = window.scrollY || document.documentElement.scrollTop;
+  let direction = window.scrollY;
   let up = null;
 
   const detectScrollDirection = () => {
-    const currentScrollPosition =
-      window.scrollY || document.documentElement.scrollTop;
-
-    if (currentScrollPosition > direction) {
-      up = true;
-    } else if (currentScrollPosition < direction) {
-      up = false;
-    }
-
+    const currentScrollPosition = window.scrollY;
+    currentScrollPosition > direction ? up = true : up = false;
     direction = currentScrollPosition;
   };
 
@@ -28,6 +21,7 @@ const progress = () => {
     pointer-events: none;
     background: url('img/progress/airplane.svg') center/contain no-repeat;
     transition: all 0.1s ease-out;
+    transform: rotate(360deg);
   `;
 
   const renderProgress = width => {
@@ -47,12 +41,10 @@ const progress = () => {
     const percent = (window.scrollY * 100) / maxScroll;
 
     const top = maxTop * (percent / 100);
-    if (up) {
-      img.style.transform = `translateY(-${top}px) rotate(360deg)`;
-    } else if (!up) {
-      img.style.transform = `translateY(-${top}px) rotate(180deg)`;
-    }
-    // img.style.transform = `translateY(-${top}px)`;
+    console.log(up);
+    img.style.transform =
+      `translateY(-${top}px) 
+        rotate(${!up ? 180 : 360}deg)`;
   };
 
   renderProgress(document.documentElement.scrollWidth);
