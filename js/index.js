@@ -1,5 +1,6 @@
 import {accordion} from './modules/accordion.js';
 import {burger} from './modules/burger.js';
+import formTour from './modules/formTour.js';
 import * as elems from './modules/getElems.js';
 import progress from './modules/progress.js';
 import {timerInit} from './modules/timer.js';
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     accordion(getMainAccordion());
     burger(getBurger());
     progress();
+    formTour();
   };
 
   app();

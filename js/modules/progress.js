@@ -41,7 +41,6 @@ const progress = () => {
     const percent = (window.scrollY * 100) / maxScroll;
 
     const top = maxTop * (percent / 100);
-    console.log(up);
     img.style.transform =
       `translateY(-${top}px) 
         rotate(${!up ? 180 : 360}deg)`;
@@ -55,7 +54,6 @@ const progress = () => {
   });
 
   window.addEventListener('scroll', () => {
-    console.log(up);
     detectScrollDirection();
     calcPositionFly();
   });

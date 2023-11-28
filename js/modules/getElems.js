@@ -26,3 +26,5 @@ export const getBurger = () => {
     link,
   };
 };
+
+export const getFormTour = document.querySelector('.tour__form');
