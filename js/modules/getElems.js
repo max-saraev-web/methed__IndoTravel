@@ -28,3 +28,5 @@ export const getBurger = () => {
 };
 
 export const getFormTour = document.querySelector('.tour__form');
+
+export const getFormReservation = document.querySelector('.reservation__form');
