@@ -81,8 +81,3 @@ const reservationForm = async () => {
 };
 
 export default reservationForm;
-
-{/* <option value="4.02 - 18.02" class="tour__option reservation__option">4.02 - 18.02</option>
-<option value="7.02 - 21.02" class="tour__option reservation__option">7.02 - 21.02</option>
-<option value="12.02 - 26.02" class="tour__option reservation__option">12.02 - 26.02</option>
-<option value="20.02 - 6.03" class="tour__option reservation__option">20.02 - 6.03</option> */}
