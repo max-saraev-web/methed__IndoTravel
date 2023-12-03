@@ -1,7 +1,6 @@
 import {getFooterForm} from './getElems.js';
 import fetchRequest from './networking/fetchRequest.js';
 
-const URL = 'https://jsonplaceholder.typicode.com/posts';
 
 const formElems = getFooterForm();
 const {
@@ -11,7 +10,7 @@ const {
   paragraph,
 } = formElems;
 
-const footerForm = () => {
+const footerForm = URL => {
   btn.disabled = true;
 
   form.addEventListener('input', ({target}) => {

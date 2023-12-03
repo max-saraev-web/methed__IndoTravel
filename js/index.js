@@ -14,6 +14,9 @@ const {
   getBurger,
 } = elems;
 
+const URL = 'https://jsonplaceholder.typicode.com/posts';
+// const URL = 'https://oasis-blushing-tungsten.glitch.me';
+
 document.addEventListener('DOMContentLoaded', () => {
   const app = () => {
     timerInit(heroTimer, '30/Dec/2023,12:12:00', heroText);
@@ -21,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     burger(getBurger());
     progress();
     formTour();
-    reservationForm();
-    footerForm();
+    reservationForm(URL);
+    footerForm(URL);
   };
 
   app();

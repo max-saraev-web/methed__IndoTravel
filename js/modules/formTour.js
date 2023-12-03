@@ -73,6 +73,7 @@ const formTour = async () => {
   });
   form.addEventListener('submit', ev => {
     ev.preventDefault();
+
     const target = ev.target;
     const data = new FormData(target);
     const obj = Object.fromEntries(data);
