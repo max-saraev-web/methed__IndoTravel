@@ -3360,3 +3360,11 @@ p {
 				margin-bottom: 15px;
 		}
 }
+
+.footer__button:active {
+		filter: grayscale(100%);
+}
+
+.footer__button:disabled {
+		filter: grayscale(80%);
+}

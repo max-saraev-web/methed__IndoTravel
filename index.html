@@ -259,11 +259,11 @@
           <div class="reservation__contacts">
             <div class="reservation__input-wrap">
               <label for="reservation__name" class="reservation__label">ФИО</label>
-              <input required type="text" class="reservation__input reservation__input_name" id="reservation__name" placeholder="Введите ваше ФИО">
+              <input name="reservationName" required type="text" class="reservation__input reservation__input_name" id="reservation__name" placeholder="Введите ваше ФИО">
             </div>
             <div class="reservation__input-wrap">
               <label for="reservation__phone" class="reservation__label">Телефон</label>
-              <input required type="text" class="reservation__input" id="reservation__phone" placeholder="Введите номер телефона">
+              <input name="reservationPhone" required type="text" class="reservation__input" id="reservation__phone" placeholder="Введите номер телефона">
             </div>
           </div>
           <div class="reservation__bottom">
@@ -319,7 +319,7 @@
           <h2 class="footer__title footer__form-title">Есть вопросы по туру?</h2>
           <p class="footer__text">Введите свой Email и мы свяжемся с вами в течении 3 рабочих дней</p>
           <div class="footer__input-wrap">
-            <input required type="text" class="footer__input" placeholder="Введите адрес электронной почты">
+            <input name="footerEmail" autocomplete="off" required type="text" class="footer__input" placeholder="Введите адрес электронной почты">
             <button type="submit" class="button footer__button" aria-label="Кнопка отправки данных формы"></button>
           </div>
         </form>

@@ -1,5 +1,6 @@
 import {accordion} from './modules/accordion.js';
 import {burger} from './modules/burger.js';
+import footerForm from './modules/footerForm.js';
 import reservationForm from './modules/formReservation.js';
 import formTour from './modules/formTour.js';
 import * as elems from './modules/getElems.js';
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     progress();
     formTour();
     reservationForm();
+    footerForm();
   };
 
   app();

@@ -1,5 +1,8 @@
 import {getFormReservation as form} from './getElems.js';
+import fetchRequest from './networking/fetchRequest.js';
 import {createDefaultOption, getDb} from './utility.js';
+
+const URL = 'https://jsonplaceholder.typicode.com/posts';
 
 const tourDate = form.querySelector('#reservation__date');
 const tourPeople = form.querySelector('#reservation__people');
@@ -77,6 +80,29 @@ const reservationForm = async () => {
       infoText.textContent = 'Дата и количество отдыхающих';
       infoPrice.textContent = 'Стоймость в ₽';
     }
+  });
+
+  form.addEventListener('submit', ev => {
+    ev.preventDefault();
+    const target = ev.target;
+    const totalPrice = target.querySelector('.reservation__price');
+
+    const fields = new FormData(target);
+    const formObj = Object.fromEntries(fields);
+    formObj.price = totalPrice.textContent;
+    submitBtn.disabled = true;
+    tourPeople.disabled = true;
+    infoText.textContent = 'Дата и количество отдыхающих';
+    infoPrice.textContent = 'Стоймость в ₽';
+
+    fetchRequest(URL, {
+      method: 'POST',
+      body: formObj,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    target.reset();
   });
 };
 

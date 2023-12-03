@@ -30,3 +30,17 @@ export const getBurger = () => {
 export const getFormTour = document.querySelector('.tour__form');
 
 export const getFormReservation = document.querySelector('.reservation__form');
+
+export const getFooterForm = () => {
+  const form = document.querySelector('.footer__form');
+  const formTitle = form.querySelector('.footer__form-title');
+  const formText = form.querySelector('.footer__text');
+  const submitBtn = form.querySelector('.footer__button');
+
+  return {
+    form,
+    title: formTitle,
+    paragraph: formText,
+    btn: submitBtn,
+  };
+};
