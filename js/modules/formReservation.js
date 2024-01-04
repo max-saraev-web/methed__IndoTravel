@@ -24,6 +24,9 @@ const reservationForm = async URL => {
 
   tourDate.append(...dateElems);
 
+  let phoneValid = false;
+  let nameValid = false;
+
   infoText.textContent = 'Дата и количество отдыхающих';
   infoPrice.textContent = 'Стоймость в ₽';
   tourPeople.disabled = true;
@@ -80,18 +83,26 @@ const reservationForm = async URL => {
       infoPrice.textContent = 'Стоймость в ₽';
     }
   });
-
+// ! - контрольная точка
   form.reservationPhone.addEventListener('input', ({target}) => {
-    target.value = target.value.replace(/([^+\d]|.{13,})/gim, '');
+    target.value = target.value.replace(/[^+\d]/gi, '');
+    if (target.value.length === 12) {
+      target.blur();
+      phoneValid = true;
+      if (phoneValid && nameValid) submitBtn.disabled = false;
+    } else {
+      phoneValid = false;
+    }
   });
 
   form.reservationName.addEventListener('input', ({target}) => {
-    target.value = target.value.replace(/([a-z\.-_]|\d)/gim, '');
+    target.value = target.value.replace(/[^а-яё\s]/gi, '');
     if (target.value.length >= 3 &&
       /^([а-яё]{3,}\s){2}[а-яё]{3,}$/i.test(target.value)) {
-      submitBtn.disabled = false;
+      nameValid = true;
+      if (phoneValid && nameValid) submitBtn.disabled = false;
     } else {
-      submitBtn.disabled = true;
+      nameValid = false;
     }
   });
 
