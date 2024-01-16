@@ -5,6 +5,7 @@ import reservationForm from './modules/formReservation.js';
 import formTour from './modules/formTour.js';
 import * as elems from './modules/getElems.js';
 import progress from './modules/progress.js';
+import sliderInit from './modules/sliderInit.js';
 import {timerInit} from './modules/timer.js';
 
 const {
@@ -26,7 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     formTour();
     reservationForm(URL);
     footerForm(URL);
+    sliderInit('.album__slider', {
+      next: '.album__right',
+      prev: '.album__left',
+      slides: 1.5,
+    });
   };
 
+  // slideClass: 'album__item',
+  // wrapperClass: 'album__list',
   app();
 });

@@ -9,10 +9,17 @@
   <link rel="preload" href="fonts/nunito-v20-latin_cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/timer.css">
   <title>Indonesia</title>
   <meta name="robots" content="noindex, nofollow">
+
+  <script defer src="js/plugins/swiper-bundle.min.js"></script>
+  <script defer src="js/plugins/js.cookie.min.js"></script>
+  <script defer src="js/plugins/inputmask.min.js"></script>
+  <script defer src="js/plugins/just-validate.production.min.js"></script>
+  <script defer src="js/plugins/axios.min.js"></script>
   <script type="module" src="js/index.js"></script>
 </head>
 <body>
@@ -188,39 +195,39 @@
         <h2 class="section__title album__title">Фотоальбом</h2>
         <p class="section__text section__text_big album__text">За годы поездок у нас накопилось много фотографий из Индонезии. Представляем их вам.</p>
       </div>
-      <div class="album__slider">
-        <ul class="album__list">
-          <li class="album__item">
+      <div class="album__slider swiper">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide album__item">
             <picture>
               <source srcset="img/album/1.avif" type="image/avif">
               <source srcset="img/album/1.webp" type="image/webp">
               <img src="img/album/1.jpg" alt="Остров" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="swiper-slide album__item">
             <picture>
               <source srcset="img/album/2.avif" type="image/avif">
               <source srcset="img/album/2.webp" type="image/webp">
               <img src="img/album/2.jpg" alt="Горы" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="swiper-slide album__item">
             <picture>
               <source srcset="img/album/3.avif" type="image/avif">
               <source srcset="img/album/3.webp" type="image/webp">
               <img src="img/album/3.jpg" alt="Лодки" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="swiper-slide album__item">
             <picture>
               <source srcset="img/album/4.avif" type="image/avif">
               <source srcset="img/album/4.webp" type="image/webp">
               <img src="img/album/4.jpg" alt="Закат" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="swiper-slide album__item">
             <picture>
               <source srcset="img/album/5.avif" type="image/avif">
               <source srcset="img/album/5.webp" type="image/webp">
               <img src="img/album/5.jpg" alt="Волны" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="swiper-slide album__item">
             <picture>
               <source srcset="img/album/6.avif" type="image/avif">
               <source srcset="img/album/6.webp" type="image/webp">
@@ -271,7 +278,7 @@
               <p class="reservation__data">24 ноября - 7 декабря, 4 человека</p>
               <p class="reservation__price">459 590₽</p>
             </div>
-            <button class="button reservation__button">Забронировать</button>
+            <button type="submit" class="button reservation__button">Забронировать</button>
           </div>
         </form>
       </div>
